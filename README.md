@@ -1,1 +1,89 @@
 # Membuat API Menggunakan Laravel
+
+Kenapa Laravel ? Menurut [StackOverFlow's Developer Survey](https://insights.stackoverflow.com/survey/2019#technology-_-most-loved-dreaded-and-wanted-web-frameworks) , laravel cukup dicintai developer dengan persentase survey 60.1 %, Laravel juga menyediakan frontend framework berupa bootstrap, react dan vue yang bisa digunakan nanti.
+
+## Syarat Penggunaan Laravel
+
+Syarat menggunakan laravel adalah anda bisa menjalankan php, composer dan node/npm pada cmd/terminal, selain itu juga perlu adanya koneksi ke database semisal phpMyAdmin, silahkan install MAMP atau XAMPP.
+
+* Jalankan Perintah berikut di terminal : `php -v`
+
+hasilnya :
+
+```html
+> php -v
+PHP 7.2.10 (cli) (built: Oct  3 2018 11:43:40) ( ZTS MSVC15 (Visual C++ 2017) x86 )
+Copyright (c) 1997-2018 The PHP Group
+Zend Engine v3.2.0, Copyright (c) 1998-2018 Zend Technologies
+```
+
+Versi Minimum PHP adalah __7.2.xx__
+
+* Jalankan Perintah berikut di terminal : `composer --version`
+
+hasilnya :
+
+```html
+> composer --version
+Composer version 1.8.6 2019-06-11 15:03:05
+```
+
+Versi Minimum Composer adalah __1.8.xx__
+
+* Node dan NPM Version
+
+```html
+> node --version
+v10.16.3
+> npm --version
+6.9.0
+```
+
+Versi Node dan NPM di atas adalah versi minimum.
+
+## Setting Up Database
+
+1. Start Server XAMPP/MAMP
+
+2. Buka phpMyAdmin di browser
+
+    XAMPP   : <http://localhost/phpmyadmin>
+    MAMP    : <http://localhost/phpMyAdmin>
+
+3. Buka tab basis data, buat basis data seperti berikut :
+
+    ```html
+    nama : laravel6api
+    penyortiran : utf8mb4_unicode_ci
+    ```
+
+## Install Laravel
+
+Jika anda baru pertama kali menginstall Laravel, maka anda perlu menginstall laravel via composer.
+
+1. Buka CMD/Terminal
+
+2. Jalankan perintah : `composer global require laravel/installer`
+
+3. Jalankan perintah : `laravel --version`
+
+    ```html
+    > laravel --version
+    Laravel Installer 2.1.0
+    ```
+
+    Versi terbaru saat tutorial ini dibuat adalah 2.1.0
+
+    Jika anda menemukan error : `bash: laravel: command not found` , solusinya :
+
+    Untuk pengguna __MacOS__ / UNIX Based OS
+
+    ```html
+            > vim ~/.bash_profile 
+    ```
+
+Insert kode berikut di dalam `bash_profile` :
+
+```html
+export PATH=~/.composer/vendor/bin:$PATH
+```
