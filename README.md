@@ -98,4 +98,8 @@ Jika anda baru pertama kali menginstall Laravel, maka anda perlu menginstall lar
 
     f. Cek kembali versi laravel installer : `laravel --version`
 
-4.
+4. Buat project laravel baru : `laravel new laravelapi`
+
+5. Masuk ke folder project : `cd laravelapi`
+
+6. 
