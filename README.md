@@ -81,7 +81,7 @@ Jika anda baru pertama kali menginstall Laravel, maka anda perlu menginstall lar
     a. jalankan perintah berikut di terminal
 
     ```html
-    > vim ~/.bash_profile 
+    > vim ~/.bash_profile
     ```
 
     b. Tekan tombol `[i]` untuk insert.
