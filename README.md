@@ -501,3 +501,57 @@ JSON Web Token adalah sebuah metode otentifikasi yang biasa dipakai pada API sed
             }
         }
     ```
+
+## RALAT
+
+Buka file `> app > User.php` , ganti kode berikut :
+
+```html
+    class User extends Authenticatable
+```
+
+dengan kode berikut :
+
+```html
+class User extends Authenticatable implements JWTSubject
+```
+
+Simpan `User.php`.
+
+Buka file `> config > auth.php`, ganti kode berikut :
+
+```html
+    'defaults' => [
+        'guard' => 'web',
+        'passwords' => 'users',
+    ],
+```
+
+dengan :
+
+```html
+    'defaults' => [
+        'guard' => 'api',
+        'passwords' => 'users',
+    ],
+```
+
+## PostMan
+
+Jalankan `php artisan serve`.
+
+1. Gunakan Postman, lakukan request POST ke alamat : <http://127.0.0.1:8000/api/auth/login>
+
+2. Pada body request pilih `x-www-form-urlencoded`.
+
+3. Masukkan Key : `email` Value : `member biasa` , dan Key : `password` Value : `member1234` , klik [SEND]
+
+4. Jika sukses maka pada Response Body berisi json :
+
+    ```html
+    {
+        "status": "success"
+    }
+    ```
+
+    dan pada header akan berisi Custom header : `Authorization`, beserta value berupa token.
