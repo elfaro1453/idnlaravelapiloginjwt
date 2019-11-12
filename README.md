@@ -120,9 +120,37 @@ Setelah sukses membuat project laravel baru, kita perlu men-set-up frontend, car
 
 6. Buka <http://127.0.0.1/> di browser.
 
-## User Management
+## Struktur Direktori Project
 
-Kali ini kita akan menghubungkan Laravel dengan database yang telah kita buat sebelumnya.
+Kurang lebih struktur dalam project adalah seperti berikut ini :
+
+```html
+    > laravelapi
+        > app
+        > bootstrap
+        > config
+        > database
+        > node_modules
+        > public
+        > resources
+        > routes
+        > storage
+        > tests
+        > vendor
+        .editorconfig
+        .env
+        .env.example
+        .artisan
+        composer.json
+        composer.lock
+        package-lock.json
+        package.json
+        phpunit.xml
+        server.php
+        webpack.mix.js
+```
+
+## Modifikasi .env
 
 Buka file `.env` di dalam folder project menggunakan text-editor, cari kode berikut :
 
@@ -136,3 +164,7 @@ DB_PASSWORD=
 ```
 
 Modifikasi `DB_DATABASE=laravel` , `DB_USERNAME=root`, `DB_PASSWORD=` sesuai dengan database, username dan password phpmyadmin.
+
+## Users dan Roles
+
+Kita akan membuat role untuk user berupa __admin__ dengan user role 1, dan __member__ dengan user role 2.
