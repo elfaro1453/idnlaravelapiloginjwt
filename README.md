@@ -108,6 +108,7 @@ Setelah sukses membuat project laravel baru, kita perlu men-set-up frontend, car
 
 [<https://laravel.com/docs/6.x/frontend]>
 
-1. Download laravel ui ke dalam project, dengan menjalankan perintah : `composer require laravel/ui --dev`.
+1. Download laravel ui ke dalam project, dengan menjalankan perintah : `composer require laravel/ui --dev`
 
-2. 
+2. Pilih Bootstrap Scaffolding dengan menjalankan perintah : `php artisan ui bootstrap --auth`
+
