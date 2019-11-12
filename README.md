@@ -168,3 +168,37 @@ Modifikasi `DB_DATABASE=laravel` , `DB_USERNAME=root`, `DB_PASSWORD=` sesuai den
 ## Users dan Roles
 
 Kita akan membuat role untuk user berupa __admin__ dengan user role 1, dan __member__ dengan user role 2.
+
+Buka file `> database > migrations > 2014_10_12_000_create_users_table.php`
+
+Edit kode di dalamnya bagian berikut
+
+```php
+        Schema::create('users', function (Blueprint $table) {
+            $table->bigIncrements('id');
+            $table->string('name');
+            $table->string('email')->unique();
+            $table->timestamp('email_verified_at')->nullable();
+            $table->string('password');
+            $table->rememberToken();
+            $table->timestamps();
+        });
+```
+
+Menjadi :
+
+```php
+        Schema::create('users', function (Blueprint $table) {
+            $table->bigIncrements('id');
+            $table->string('name')->nullable();
+            $table->string('email')->unique();
+            $table->integer('role')->default(2);
+            $table->timestamp('email_verified_at')->nullable();
+            $table->string('password');
+            $table->rememberToken();
+            $table->timestamps();
+        });
+```
+
+* _Penambahan `->nullable();` di sebelah `name` agar tidak terjadi error meski user tidak memberi nama._
+* _Penambahan `$table->integer('role')->default(2);` agar saat pendaftaran user baru akan **otomatis** memiliki privilege member_
