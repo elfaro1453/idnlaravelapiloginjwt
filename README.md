@@ -78,12 +78,24 @@ Jika anda baru pertama kali menginstall Laravel, maka anda perlu menginstall lar
 
     Untuk pengguna __MacOS__ / UNIX Based OS
 
+    a. jalankan perintah berikut di terminal
+
     ```html
-            > vim ~/.bash_profile 
+    > vim ~/.bash_profile 
     ```
 
-Insert kode berikut di dalam `bash_profile` :
+    b. Tekan tombol `[i]` untuk insert.
 
-```html
-export PATH=~/.composer/vendor/bin:$PATH
-```
+    c. Ketik kode berikut ini di dalam `bash_profile` :
+
+    ```html
+    export PATH=~/.composer/vendor/bin:$PATH
+    ```
+
+    d. Tekan tombol `[esc]` , ketik `:wq` , tekan tombol [Enter] untuk menyimpan
+
+    e. Jalankan perintah `source ~/.bash_profile`
+
+    f. Cek kembali versi laravel installer : `laravel --version`
+
+4.
