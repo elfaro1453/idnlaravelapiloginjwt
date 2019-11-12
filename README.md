@@ -394,12 +394,26 @@ JSON Web Token adalah sebuah metode otentifikasi yang biasa dipakai pada API sed
 
 7. Simpan file
 
-Jalankan server laravel dengan perintah `php artisan serve`
+    Jalankan server laravel dengan perintah `php artisan serve`
 
-Buka Aplikasi PostMan, lakukan request Get ke alamat `http://127.0.0.1:8000/api/user` , maka response-nya adalah :
+    Buka Aplikasi PostMan, lakukan request Get ke alamat `http://127.0.0.1:8000/api/user` , maka response-nya adalah :
 
-```html
-{
-    "error": "Unauthorized"
-}
-```
+    ```html
+    {
+        "error": "Unauthorized"
+    }
+    ```
+
+8. Buka file `> routes > api.php`, tambahkan baris berikut :
+
+    ```html
+    Route::prefix('auth')->group(function () {
+    Route::post('register', 'AuthController@register');
+    Route::post('login', 'AuthController@login');
+    Route::get('refresh', 'AuthController@refresh');
+    Route::group(['middleware' => 'auth:api'], function(){
+        Route::get('user', 'AuthController@user');
+        Route::post('logout', 'AuthController@logout');
+        });
+    });
+    ```
