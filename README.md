@@ -119,3 +119,20 @@ Setelah sukses membuat project laravel baru, kita perlu men-set-up frontend, car
 5. __Buka CMD/Terminal baru__, `cd` ke dalam folder project, jalankan perintah : `php artisan run serve`
 
 6. Buka <http://127.0.0.1/> di browser.
+
+## User Management
+
+Kali ini kita akan menghubungkan Laravel dengan database yang telah kita buat sebelumnya.
+
+Buka file `.env` di dalam folder project menggunakan text-editor, cari kode berikut :
+
+```html
+DB_CONNECTION=mysql
+DB_HOST=127.0.0.1
+DB_PORT=3306
+DB_DATABASE=laravel
+DB_USERNAME=root
+DB_PASSWORD=
+```
+
+Modifikasi `DB_DATABASE=laravel` , `DB_USERNAME=root`, `DB_PASSWORD=` sesuai dengan database, username dan password phpmyadmin.
