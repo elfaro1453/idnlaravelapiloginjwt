@@ -171,7 +171,7 @@ Kita akan membuat role untuk user berupa __admin__ dengan user role 1, dan __mem
 
 Buka file `> database > migrations > 2014_10_12_000_create_users_table.php`
 
-Edit kode di dalamnya bagian berikut
+Edit kode bagian berikut
 
 ```php
         Schema::create('users', function (Blueprint $table) {
@@ -200,5 +200,39 @@ Menjadi :
         });
 ```
 
-* _Penambahan `->nullable();` di sebelah `name` agar tidak terjadi error meski user tidak memberi nama._
+* _Penambahan `->nullable();` di sebelah `$table->string('name')` agar tidak terjadi error meski user tidak memberi nama._
 * _Penambahan `$table->integer('role')->default(2);` agar saat pendaftaran user baru akan **otomatis** memiliki privilege member_
+
+### Edit Database Seeder
+
+Agar bisa login, kita akan membuat User Admin dan User Member dengan cara :
+
+1. Buka file `> database > seeds > DatabaseSeeder.php`
+
+2. Replace Kode di dalamnya dengan kode berikut ini :
+
+    ```php
+        <?php
+        use App\User;
+        use Illuminate\Database\Seeder;
+        use Illuminate\Support\Facades\Hash;
+        class DatabaseSeeder extends Seeder
+        {
+            public function run()
+            {
+                User::create([
+                'name' => 'Admin Ganteng',
+                'email' => 'admin@ganteng.com',
+                'password' => Hash::make('admin1234'),
+                'role' => 1
+                ]);
+
+                User::create([
+                'name' => 'Member Biasa',
+                'email' => 'member@biasa.com',
+                'password' => Hash::make('member1234'),
+                'role' => 2
+                ]);
+            }
+        }
+    ```
