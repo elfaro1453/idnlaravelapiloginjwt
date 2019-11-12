@@ -112,3 +112,10 @@ Setelah sukses membuat project laravel baru, kita perlu men-set-up frontend, car
 
 2. Pilih Bootstrap Scaffolding dengan menjalankan perintah : `php artisan ui bootstrap --auth`
 
+3. Jalankan perintah : `npm install`
+
+4. Jalankan perintah : `npm run watch`
+
+5. __Buka CMD/Terminal baru__, `cd` ke dalam folder project, jalankan perintah : `php artisan run serve`
+
+6. Buka <http://127.0.0.1/> di browser.
