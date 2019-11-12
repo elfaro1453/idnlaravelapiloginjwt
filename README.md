@@ -236,3 +236,126 @@ Agar bisa login, kita akan membuat User Admin dan User Member dengan cara :
             }
         }
     ```
+
+3. [Migrate](https://laravel.com/docs/6.x/migrations) Database dan [Seeding](https://laravel.com/docs/6.x/seeding)
+
+```html
+php artisan migrate --seed
+```
+
+Setelah sukses migrate database, anda bisa log in di <http://127.0.0.1/login> menggunakan akun yang telah dibuat tadi.
+
+## Login Menggunakan API JWT (Json Web Token)
+
+JSON Web Token adalah sebuah metode otentifikasi yang biasa dipakai pada API sederhana, lanjut saja kita akan menggunakan [JWT Auth for Laravel](https://github.com/tymondesigns/jwt-auth).
+
+<https://jwt-auth.readthedocs.io/en/develop/quick-start/>
+
+1. Tambahkan vendor tymon/jwt-auth pada proyek dengan menjalankan perintah :
+
+    ```html
+    composer require tymon/jwt-auth:dev-develop
+    ```
+
+2. Publish vendor pada laravel :
+
+    ```html
+    php artisan vendor:publish --provider="Tymon\JWTAuth\Providers\LaravelServiceProvider"
+    ```
+
+    _Langkah ini akan membuat file `> config > jwt.php`_
+
+3. Buat JWT Secret Key pada file `.env` secara otomatis dengan perintah :
+
+    ```html
+    php artisan jwt:secret
+    ```
+
+4. Buka file `> config > auth.php`, modifikasi baris berikut :
+
+    ```html
+    'guards' => [
+        'web' => [
+            'driver' => 'session',
+            'provider' => 'users',
+        ],
+
+        'api' => [
+            'driver' => 'token',
+            'provider' => 'users',
+            'hash' => false,
+        ],
+    ],
+    ```
+
+    Menjadi :
+
+    ```html
+    'guards' => [
+        'web' => [
+            'driver' => 'session',
+            'provider' => 'users',
+        ],
+
+        'api' => [
+            'driver' => 'jwt',
+            'provider' => 'users',
+        ],
+    ],
+    ```
+
+5. Modifikasi User Model file `> app > user.php` menjadi seperti berikut ini :
+
+    ```html
+    <?php
+
+    namespace App;
+
+    use Illuminate\Contracts\Auth\MustVerifyEmail;
+    use Illuminate\Foundation\Auth\User as Authenticatable;
+    use Illuminate\Notifications\Notifiable;
+    use Tymon\JWTAuth\Contracts\JWTSubject;
+
+    class User extends Authenticatable
+    {
+        use Notifiable;
+
+        /**
+        * The attributes that are mass assignable.
+        *
+        * @var array
+        */
+        protected $fillable = [
+            'name', 'email', 'role', 'password',
+        ];
+
+        /**
+        * The attributes that should be hidden for arrays.
+        *
+        * @var array
+        */
+        protected $hidden = [
+            'password', 'remember_token',
+        ];
+
+        /**
+        * The attributes that should be cast to native types.
+        *
+        * @var array
+        */
+        protected $casts = [
+            'email_verified_at' => 'datetime',
+        ];
+        public function getJWTIdentifier()
+        {
+            return $this->getKey();
+        }
+
+        public function getJWTCustomClaims()
+        {
+            return [];
+        }
+    }
+    ```
+
+    Simpan file.
