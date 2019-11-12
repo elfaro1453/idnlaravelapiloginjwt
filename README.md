@@ -102,4 +102,12 @@ Jika anda baru pertama kali menginstall Laravel, maka anda perlu menginstall lar
 
 5. Masuk ke folder project : `cd laravelapi`
 
-6. 
+## FrontEnd Scaffolding
+
+Setelah sukses membuat project laravel baru, kita perlu men-set-up frontend, caranya :
+
+[<https://laravel.com/docs/6.x/frontend]>
+
+1. Download laravel ui ke dalam project, dengan menjalankan perintah : `composer require laravel/ui --dev`.
+
+2. 
