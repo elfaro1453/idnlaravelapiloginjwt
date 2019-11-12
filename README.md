@@ -116,7 +116,7 @@ Setelah sukses membuat project laravel baru, kita perlu men-set-up frontend, car
 
 4. Jalankan perintah : `npm run watch`
 
-5. __Buka CMD/Terminal baru__, `cd` ke dalam folder project, jalankan perintah : `php artisan run serve`
+5. __Buka CMD/Terminal baru__, `cd` ke dalam folder project, jalankan perintah : `php artisan serve`
 
 6. Buka <http://127.0.0.1/> di browser.
 
