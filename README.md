@@ -518,23 +518,6 @@ class User extends Authenticatable implements JWTSubject
 
 Simpan `User.php`.
 
-Buka file `> config > auth.php`, ganti kode berikut :
-
-```html
-    'defaults' => [
-        'guard' => 'web',
-        'passwords' => 'users',
-    ],
-```
-
-dengan :
-
-```html
-    'defaults' => [
-        'guard' => 'api',
-        'passwords' => 'users',
-    ],
-```
 
 ## PostMan
 
