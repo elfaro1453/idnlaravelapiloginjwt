@@ -565,3 +565,17 @@ Coba Cek Login melalui Web dengan cara :
 buka <http://127.0.0.1:8000/login> , log in menggunakan akun admin atau member.
 
 Hasilnya anda akan masuk ke dashboard home : `http://127.0.0.1:8000/home`.
+
+## Web User Management
+
+Kita akan membuat user management web agar admin bisa menambah atau menghapus member.
+
+1. Buat [Controller](https://laravel.com/docs/5.7/controllers) dengan model User
+
+    ```html
+    php artisan make:controller UserController --resource --model=User
+    ```
+
+    Perintah ini akan menghasilkan file `\app\Http\Controllers\UserController.php`
+
+2. 
