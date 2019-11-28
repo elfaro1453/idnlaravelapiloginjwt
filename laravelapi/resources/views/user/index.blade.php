@@ -33,8 +33,6 @@
                                 </td>
                                 <td>
                                     <form method="POST" action="{{ route('user.destroy', $user->id ) }}" class="row">
-
-                                        <div class="col-md-4 mb-2"><a href="{{ route('user.show', $user->id ) }}"><button type="button" class="btn-sm btn-success">Lihat</button></a></div>
                                         <div class="col-md-4 mb-2"><a href="{{ route('user.edit', $user->id ) }}"><button type="button" class="btn-sm btn-primary">Edit</button></a></div>
                                         @if ( $user->role != 1)
                                         <div class="col-md-4 mb-2">
