@@ -1,4 +1,4 @@
-# Membuat API Menggunakan Laravel
+# Membuat API Login JWT Menggunakan Laravel
 
 Kenapa Laravel ? Menurut [StackOverFlow's Developer Survey](https://insights.stackoverflow.com/survey/2019#technology-_-most-loved-dreaded-and-wanted-web-frameworks) , laravel cukup dicintai developer dengan persentase survey 60.1 %, Laravel juga menyediakan frontend framework berupa bootstrap, react dan vue yang bisa digunakan nanti.
 
@@ -565,17 +565,3 @@ Coba Cek Login melalui Web dengan cara :
 buka <http://127.0.0.1:8000/login> , log in menggunakan akun admin atau member.
 
 Hasilnya anda akan masuk ke dashboard home : `http://127.0.0.1:8000/home`.
-
-## Web User Management
-
-Kita akan membuat user management web agar admin bisa menambah atau menghapus member.
-
-1. Buat [Controller](https://laravel.com/docs/5.7/controllers) dengan model User
-
-    ```html
-    php artisan make:controller UserController --resource --model=User
-    ```
-
-    Perintah ini akan menghasilkan file `\app\Http\Controllers\UserController.php`
-
-2. 
